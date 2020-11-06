@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <script>
+ 	function calculator()
+ {
+ 	    var billamt=document.getElementById("Bill").value;
+        var tipper =document.getElementById("Tip").value;
+        var num=document.getElementById("People").value;
+        if (billamt === "" || num==="") {
+        alert("Please enter values");
+        return;
+        }
+        if(billamt <=0)
+        {
+        	alert("Amount can't be less than equal to 0");
+        }else
+        {
+         let tip_per_person=(tipper*billamt)/100;
+         let total_tip_per_person=tip_per_person/num;
+            var total_per_person=(billamt/num)+total_tip_per_person;
+        total_tip_per_person=total_tip_per_person.toFixed(2);
+         total_per_person=total_per_person.toFixed(2);
+        document.getElementById("demo").innerHTML="$"+total_tip_per_person;
+        document.getElementById("demo1").innerHTML="$"+total_per_person;
+ }
+}
+ </script>
+ <style>
+ 	*{
+ 		margin: 0;
+ 		padding: 0;
+ 		box-sizing: border-box;
+ 		font-family: 'Josefin Sans', sans-serif;
+ 	}
+ 	main
+ 	{
+ 		height: 200vh;
+ 		display:flex;
+ 		justify-content: center;
+ 		align-content: center;
+ 	}
+ 	#de
+ 	{    
+ 		padding: 90px;
+ 		justify-content: right;
+        align-content: right;
+ 	}
+ 	h1 {
+  text-align: center;
+   }
+   div
+   {
+   	 max-width: 500px; height: 400px;
+   	 padding: 80px;
+   	 box-shadow: 1px 1px 5px 1px 
+   }
+   #demo3
+   {
+   	padding:50px;
+   }
+
+</style>
+</head>
+<body style="background-color: #5D6D7E">
+	<den>
+	<h1 id="demo3">Tip Calculator</h1>
+	<main>
+		<div>
+<form>
+	<label for="Bill">Bill Amount</label><br>
+	<input type="number" id="Bill" name="Bill"><br><br>
+	<label for="Tip">Tip%</label><br>
+	<input type="number" id="Tip" name="Tip%"><br><br>
+	<label for="People">Number Of people</label><br>
+	<input type="number" id="People" name="Number of people"><br><br>
+	<p>How was Your service. Please Rate it !!!</p>
+	<select id="serviceQual">
+            <option disabled selected value="0">-- Rate Your Service --</option>
+            <option value="0.3">30&#37; &#45; Outstanding</option>
+            <option value="0.2">20&#37; &#45; Good</option>
+            <option value="0.15">15&#37; &#45; It was OK</option>
+            <option value="0.1">10&#37; &#45; Bad</option>
+            <option value="0.05">5&#37; &#45; Terrible</option>
+        </select><br><br>
+
+	<button type="button" onclick="calculator()">Calculate</button>
+</form>
+</div>
+<div id="de">
+<h2 id="demo">$0.00</h2>
+<h5>Total tip per person</h5><br>
+<h2 id="demo1">$0.00</h2>
+<h5>total amount per person</h5>
+</div>
+</main>
+</den>
+</body>
+</html>
